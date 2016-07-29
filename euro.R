@@ -23,6 +23,8 @@ euro_df$score<- mapply(do_score, euro_df$home_goals, euro_df$away_goals)
 
 euro_df$score<- as.factor(euro_df$score)
 #
+# for checking distribution. the original model slightly inflated likelihood 
+# for 0-0, 0-1 and 1-0 scores.
 barplot(table(euro_df$score))
 #,'QE-12','QE-13','QE-14'
 
