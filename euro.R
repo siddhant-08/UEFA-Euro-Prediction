@@ -28,6 +28,7 @@ euro_df$score<- as.factor(euro_df$score)
 barplot(table(euro_df$score))
 #,'QE-12','QE-13','QE-14'
 
+# selecting relevant competitive games from the data
 valid_matches<- c('EC-12','EC-13','EC-14','QE-12','QE-13','QE-14','WC-20')
 euro_df<- filter(euro_df, type %in% valid_matches)
 
@@ -41,20 +42,13 @@ find_months<- function(year,month,ref_year,ref_month){
   return( 12*(year - ref_year) + (month - ref_month))
 }
 
+# finding number of months between current and the date of the match
 euro_df$months<-mapply(find_months,euro_df$Year, euro_df$Month,2002,1)
 
 euro_df$months<- sapply(euro_df$months, function(x,max_month){ x<- max_month - x + 1}, max_month=euro_df$months[nrow(euro_df)] )
 
 
-#valid_matches<- c('EC-12','EC-13','EC-14','QE-12','QE-13','QE-14')
-#prof_euro_df<- filter(euro_df, type %in% valid_matches)
-#euro_df<- prof_euro_df
-
 likelihood <- function(y1, y2, lambda, mu, months,phi=0,rho=0){
-  #rho=0, independence
-  #y1: home goals
-  #y2: away goals=
-  #exp(-phi*(months) )
   sum( exp(-phi*months) * (log(dpois(y1, lambda) ) + log(dpois(y2, mu) ) ) ) 
 }
 
@@ -66,32 +60,32 @@ create_base <- function(euro_df){
   team.names <- unique(c(levels(euro_df$home_team), levels(euro_df$away_team)))
   
   return(list(
-    homeTeamDM=hm,
-    awayTeamDM=am,
-    homeGoals=euro_df$home_goals,
-    awayGoals=euro_df$away_goals,
+    home-team_dm=hm,
+    away_team_dm=am,
+    home_goals=euro_df$home_goals,
+    away_goals=euro_df$away_goals,
     teams=team.names
   )) 
 }
 
-DCoptimFn <- function(params, DCm, months,phi.p=0){
+optimiser <- function(params, mat, months,phi.p=0){
   
   home.p <- params[1]
   
-  nteams <- length(DCm$teams)
+  nteams <- length(mat$teams)
   attack.p <- matrix(params[2 : ( nteams + 1)], ncol=1)
   defence.p <- matrix(params[( nteams + 2) : length(params) ], ncol=1)
 
-  lambda <- exp(DCm$homeTeamDM %*% attack.p + DCm$awayTeamDM %*% defence.p + home.p)
-  mu <- exp(DCm$awayTeamDM %*% attack.p + DCm$homeTeamDM %*% defence.p)
+  lambda <- exp(mat$home_team_dm %*% attack.p + mat$away_team_dm %*% defence.p + home.p)
+  mu <- exp(DCm$away_team_dm %*% attack.p + mat$home_team_dm %*% defence.p)
   
   return(
-    likelihood(DCm$homeGoals, DCm$awayGoals, lambda, mu, months, phi.p, rho.p) * -1
+    likelihood(mat$home_goals, mat$away_goals, lambda, mu, months, phi.p) * -1
   )
 }
 
-attack_constraint <- function(params, DCm, ...){
-  nteams <- length(DCm$teams)
+attack_constraint <- function(params, mat, ...){
+  nteams <- length(mat$teams)
   attack.p <- matrix(params[2 : ( nteams+1 )], ncol=1)
   return((sum(attack.p) / nteams) - 1)
 }
@@ -103,14 +97,14 @@ defence_params <- rep(-0.25, times=nlevels(as.factor(euro_df$home_team)))
 home_param <- 0.2
 phi <-0.03
 init_params <- c(home_param,attack_params, defence_params)
-names(init_params) <- c('HOME', paste('Attack', dcm$teams, sep='.'), paste('Defence', dcm$teams, sep='.'))
+names(init_params) <- c('Home', paste('Attack', dcm$teams, sep='.'), paste('Defence', dcm$teams, sep='.'))
 
 
 library(alabama)
 res <- auglag(par=par.inits, 
-              fn=DCoptimFn,
+              fn=optimiser,
               heq=attack_constraint,
-              DCm=dcm, 
+              mat=dcm, 
               months= euro_df$months,
               phi.p=phi)
 
