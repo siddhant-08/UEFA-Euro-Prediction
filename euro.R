@@ -86,19 +86,19 @@ optimiser <- function(params, mat, months,phi.p=0){
 
 attack_constraint <- function(params, mat, ...){
   nteams <- length(mat$teams)
-  attack.p <- matrix(params[2 : ( nteams+1 )], ncol=1)
+  attack.p <- vector(params[2 : ( nteams+1 )])
   return((sum(attack.p) / nteams) - 1)
 }
 
 dcm<- create_base(euro_df)
 #initial parameter estimates
+
 attack_params <- rep(.5, times=nlevels(as.factor(euro_df$home_team)))
 defence_params <- rep(-0.25, times=nlevels(as.factor(euro_df$home_team)))
 home_param <- 0.2
 phi <-0.03
 init_params <- c(home_param,attack_params, defence_params)
-names(init_params) <- c('Home', paste('Attack', dcm$teams, sep='.'), paste('Defence', dcm$teams, sep='.'))
-
+names(init_params) <- c('HOME', paste('Attack', dcm$teams, sep='.'), paste('Defence', dcm$teams, sep='.'))
 
 library(alabama)
 res <- auglag(par=par.inits, 
@@ -108,17 +108,20 @@ res <- auglag(par=par.inits,
               months= euro_df$months,
               phi.p=phi)
 
+# all the possible games that can be played in the tournment
 match<- fread('predict.csv',header = T)
+# the fifa rankings and other data 
 fifa<- fread('fifa.csv',header=T)
 match<- as.data.frame(match)
 
 matches<- match
-# adding columns to the table
+
+# adding columns for avg. home and away goals to the table
 matches$lambda<-0
 matches$mu<-0
 
 
-calc_lambda<- function(home_team,away_team) {
+calc_lambda_mu<- function(home_team,away_team) {
   home_data<-fifa[fifa$Team==home_team]
   away_data<-fifa[fifa$Team==away_team]
   
@@ -136,14 +139,14 @@ calc_lambda<- function(home_team,away_team) {
     lambda<- lambda + res$par['HOME']
   }
   
-  if(away_team =='France' || away_team=='Belgium'){    # to account for Belgium's stellar rise in recent years
+  if(away_team =='France' || away_team=='Belgium'){    # to account for Belgium's rise in recent years
     mu<- mu + res$par['HOME']
   }
   
   return (list(exp(lambda), exp(mu)))
 }
 
-la_mu<-mapply(calc_lambda, matches$home_team,matches$away_team)
+la_mu<-mapply(calc_lambda_mu, matches$home_team,matches$away_team)
 
 matches$lambda<- la_mu[1,]
 matches$mu <-la_mu[2,]
@@ -153,15 +156,16 @@ matches$home_score<-0.0
 matches$away_score<-0.0
 
 find_score<- function(lambda, mu,group_stage){
-  maxgoal <- 8 # will be useful later
+  maxgoal <- 8 
+  # all scores from 0-0 to 8-8 considered
   probability_matrix <- dpois(0:maxgoal, lambda) %*% t(dpois(0:maxgoal, mu))
   
-  # Predicting the most probable non-draw score for knockouts.
-  # Not enough data to predict penalty scores
+  # For predicting the most probable "non-draw" score for knockouts.
+  # Not enough data to predict penalty scores.
   
-  if(group_stage==0){
-    diag(probability_matrix)<-0
-  }
+  #if(group_stage==0){
+   # diag(probability_matrix)<-0
+  #}
   
   score<-as.data.frame( which( probability_matrix==max(probability_matrix), arr.ind = T ))
   return (score)
