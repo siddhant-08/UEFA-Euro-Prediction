@@ -1,0 +1,277 @@
+MATCH NUMBER,home_team,away_team,group_stage
+EC001,Albania,Austria,0
+EC002,Albania,Belgium,0
+EC003,Albania,Croatia,0
+EC004,Albania,Czech Republic,0
+EC005,Albania,England,0
+EC006,Albania,France,1
+EC007,Albania,Germany,0
+EC008,Albania,Hungary,0
+EC009,Albania,Iceland,0
+EC010,Albania,Italy,0
+EC011,Albania,North. Ireland,0
+EC012,Albania,Poland,0
+EC013,Albania,Portugal,0
+EC014,Albania,Ireland,0
+EC015,Albania,Romania,1
+EC016,Albania,Russia,0
+EC017,Albania,Slovakia,0
+EC018,Albania,Spain,0
+EC019,Albania,Sweden,0
+EC020,Albania,Switzerland,1
+EC021,Albania,Turkey,0
+EC022,Albania,Ukraine,0
+EC023,Albania,Wales,0
+EC024,Austria,Belgium,0
+EC025,Austria,Croatia,0
+EC026,Austria,Czech Republic,0
+EC027,Austria,England,0
+EC028,Austria,France,0
+EC029,Austria,Germany,0
+EC030,Austria,Hungary,1
+EC031,Austria,Iceland,1
+EC032,Austria,Italy,0
+EC033,Austria,North. Ireland,0
+EC034,Austria,Poland,0
+EC035,Austria,Portugal,1
+EC036,Austria,Ireland,0
+EC037,Austria,Romania,0
+EC038,Austria,Russia,0
+EC039,Austria,Slovakia,0
+EC040,Austria,Spain,0
+EC041,Austria,Sweden,0
+EC042,Austria,Switzerland,0
+EC043,Austria,Turkey,0
+EC044,Austria,Ukraine,0
+EC045,Austria,Wales,0
+EC046,Belgium,Croatia,0
+EC047,Belgium,Czech Republic,0
+EC048,Belgium,England,0
+EC049,Belgium,France,0
+EC050,Belgium,Germany,0
+EC051,Belgium,Hungary,0
+EC052,Belgium,Iceland,0
+EC053,Belgium,Italy,1
+EC054,Belgium,North. Ireland,0
+EC055,Belgium,Poland,0
+EC056,Belgium,Portugal,0
+EC057,Belgium,Ireland,1
+EC058,Belgium,Romania,0
+EC059,Belgium,Russia,0
+EC060,Belgium,Slovakia,0
+EC061,Belgium,Spain,0
+EC062,Belgium,Sweden,1
+EC063,Belgium,Switzerland,0
+EC064,Belgium,Turkey,0
+EC065,Belgium,Ukraine,0
+EC066,Belgium,Wales,0
+EC067,Croatia,Czech Republic,1
+EC068,Croatia,England,0
+EC069,Croatia,France,0
+EC070,Croatia,Germany,0
+EC071,Croatia,Hungary,0
+EC072,Croatia,Iceland,0
+EC073,Croatia,Italy,0
+EC074,Croatia,North. Ireland,0
+EC075,Croatia,Poland,0
+EC076,Croatia,Portugal,0
+EC077,Croatia,Ireland,0
+EC078,Croatia,Romania,0
+EC079,Croatia,Russia,0
+EC080,Croatia,Slovakia,0
+EC081,Croatia,Spain,1
+EC082,Croatia,Sweden,0
+EC083,Croatia,Switzerland,0
+EC084,Croatia,Turkey,1
+EC085,Croatia,Ukraine,0
+EC086,Croatia,Wales,0
+EC087,Czech Republic,England,0
+EC088,Czech Republic,France,0
+EC089,Czech Republic,Germany,0
+EC090,Czech Republic,Hungary,0
+EC091,Czech Republic,Iceland,0
+EC092,Czech Republic,Italy,0
+EC093,Czech Republic,North. Ireland,0
+EC094,Czech Republic,Poland,0
+EC095,Czech Republic,Portugal,0
+EC096,Czech Republic,Ireland,0
+EC097,Czech Republic,Romania,0
+EC098,Czech Republic,Russia,0
+EC099,Czech Republic,Slovakia,0
+EC100,Czech Republic,Spain,1
+EC101,Czech Republic,Sweden,0
+EC102,Czech Republic,Switzerland,0
+EC103,Czech Republic,Turkey,1
+EC104,Czech Republic,Ukraine,0
+EC105,Czech Republic,Wales,0
+EC106,England,France,0
+EC107,England,Germany,0
+EC108,England,Hungary,0
+EC109,England,Iceland,0
+EC110,England,Italy,0
+EC111,England,North. Ireland,0
+EC112,England,Poland,0
+EC113,England,Portugal,0
+EC114,England,Ireland,0
+EC115,England,Romania,0
+EC116,England,Russia,1
+EC117,England,Slovakia,1
+EC118,England,Spain,0
+EC119,England,Sweden,0
+EC120,England,Switzerland,0
+EC121,England,Turkey,0
+EC122,England,Ukraine,0
+EC123,England,Wales,1
+EC124,France,Germany,0
+EC125,France,Hungary,0
+EC126,France,Iceland,0
+EC127,France,Italy,0
+EC128,France,North. Ireland,0
+EC129,France,Poland,0
+EC130,France,Portugal,0
+EC131,France,Ireland,0
+EC132,France,Romania,1
+EC133,France,Russia,0
+EC134,France,Slovakia,0
+EC135,France,Spain,0
+EC136,France,Sweden,0
+EC137,France,Switzerland,1
+EC138,France,Turkey,0
+EC139,France,Ukraine,0
+EC140,France,Wales,0
+EC141,Germany,Hungary,0
+EC142,Germany,Iceland,0
+EC143,Germany,Italy,0
+EC144,Germany,North. Ireland,1
+EC145,Germany,Poland,1
+EC146,Germany,Portugal,0
+EC147,Germany,Ireland,0
+EC148,Germany,Romania,0
+EC149,Germany,Russia,0
+EC150,Germany,Slovakia,0
+EC151,Germany,Spain,0
+EC152,Germany,Sweden,0
+EC153,Germany,Switzerland,0
+EC154,Germany,Turkey,0
+EC155,Germany,Ukraine,1
+EC156,Germany,Wales,0
+EC157,Hungary,Iceland,1
+EC158,Hungary,Italy,0
+EC159,Hungary,North. Ireland,0
+EC160,Hungary,Poland,0
+EC161,Hungary,Portugal,1
+EC162,Hungary,Ireland,0
+EC163,Hungary,Romania,0
+EC164,Hungary,Russia,0
+EC165,Hungary,Slovakia,0
+EC166,Hungary,Spain,0
+EC167,Hungary,Sweden,0
+EC168,Hungary,Switzerland,0
+EC169,Hungary,Turkey,0
+EC170,Hungary,Ukraine,0
+EC171,Hungary,Wales,0
+EC172,Iceland,Italy,0
+EC173,Iceland,North. Ireland,0
+EC174,Iceland,Poland,0
+EC175,Iceland,Portugal,1
+EC176,Iceland,Ireland,0
+EC177,Iceland,Romania,0
+EC178,Iceland,Russia,0
+EC179,Iceland,Slovakia,0
+EC180,Iceland,Spain,0
+EC181,Iceland,Sweden,0
+EC182,Iceland,Switzerland,0
+EC183,Iceland,Turkey,0
+EC184,Iceland,Ukraine,0
+EC185,Iceland,Wales,0
+EC186,Italy,North. Ireland,0
+EC187,Italy,Poland,0
+EC188,Italy,Portugal,0
+EC189,Italy,Ireland,1
+EC190,Italy,Romania,0
+EC191,Italy,Russia,0
+EC192,Italy,Slovakia,0
+EC193,Italy,Spain,0
+EC194,Italy,Sweden,1
+EC195,Italy,Switzerland,0
+EC196,Italy,Turkey,0
+EC197,Italy,Ukraine,0
+EC198,Italy,Wales,0
+EC199,North. Ireland,Poland,1
+EC200,North. Ireland,Portugal,0
+EC201,North. Ireland,Ireland,0
+EC202,North. Ireland,Romania,0
+EC203,North. Ireland,Russia,0
+EC204,North. Ireland,Slovakia,0
+EC205,North. Ireland,Spain,0
+EC206,North. Ireland,Sweden,0
+EC207,North. Ireland,Switzerland,0
+EC208,North. Ireland,Turkey,0
+EC209,North. Ireland,Ukraine,1
+EC210,North. Ireland,Wales,0
+EC211,Poland,Portugal,0
+EC212,Poland,Ireland,0
+EC213,Poland,Romania,0
+EC214,Poland,Russia,0
+EC215,Poland,Slovakia,0
+EC216,Poland,Spain,0
+EC217,Poland,Sweden,0
+EC218,Poland,Switzerland,0
+EC219,Poland,Turkey,0
+EC220,Poland,Ukraine,0
+EC221,Poland,Wales,0
+EC222,Portugal,Ireland,0
+EC223,Portugal,Romania,0
+EC224,Portugal,Russia,0
+EC225,Portugal,Slovakia,0
+EC226,Portugal,Spain,0
+EC227,Portugal,Sweden,0
+EC228,Portugal,Switzerland,0
+EC229,Portugal,Turkey,0
+EC230,Portugal,Ukraine,0
+EC231,Portugal,Wales,0
+EC232,Ireland,Romania,0
+EC233,Ireland,Russia,0
+EC234,Ireland,Slovakia,0
+EC235,Ireland,Spain,0
+EC236,Ireland,Sweden,1
+EC237,Ireland,Switzerland,0
+EC238,Ireland,Turkey,0
+EC239,Ireland,Ukraine,0
+EC240,Ireland,Wales,0
+EC241,Romania,Russia,0
+EC242,Romania,Slovakia,0
+EC243,Romania,Spain,0
+EC244,Romania,Sweden,0
+EC245,Romania,Switzerland,1
+EC246,Romania,Turkey,0
+EC247,Romania,Ukraine,0
+EC248,Romania,Wales,0
+EC249,Russia,Slovakia,1
+EC250,Russia,Spain,0
+EC251,Russia,Sweden,0
+EC252,Russia,Switzerland,0
+EC253,Russia,Turkey,0
+EC254,Russia,Ukraine,0
+EC255,Russia,Wales,1
+EC256,Slovakia,Spain,0
+EC257,Slovakia,Sweden,0
+EC258,Slovakia,Switzerland,0
+EC259,Slovakia,Turkey,0
+EC260,Slovakia,Ukraine,0
+EC261,Slovakia,Wales,1
+EC262,Spain,Sweden,0
+EC263,Spain,Switzerland,0
+EC264,Spain,Turkey,1
+EC265,Spain,Ukraine,0
+EC266,Spain,Wales,0
+EC267,Sweden,Switzerland,0
+EC268,Sweden,Turkey,0
+EC269,Sweden,Ukraine,0
+EC270,Sweden,Wales,0
+EC271,Switzerland,Turkey,0
+EC272,Switzerland,Ukraine,0
+EC273,Switzerland,Wales,0
+EC274,Turkey,Ukraine,0
+EC275,Turkey,Wales,0
+EC276,Ukraine,Wales,0
