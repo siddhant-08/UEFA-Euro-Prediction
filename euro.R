@@ -158,7 +158,7 @@ matches$away_score<-0.0
 find_score<- function(lambda, mu,group_stage){
   maxgoal <- 8 
   # all scores from 0-0 to 8-8 considered
-  probability_matrix <- dpois(0:maxgoal, lambda) %*% (dpois(0:maxgoal, mu))
+  probability_matrix <- dpois(0:maxgoal, lambda) %*% t(dpois(0:maxgoal, mu))
   
   # For predicting the most probable "non-draw" score for knockouts.
   # Not enough data to predict penalty scores.
