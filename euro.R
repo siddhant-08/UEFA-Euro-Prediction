@@ -48,7 +48,7 @@ euro_df$months<-mapply(find_months,euro_df$Year, euro_df$Month,2002,1)
 euro_df$months<- sapply(euro_df$months, function(x,max_month){ x<- max_month - x + 1}, max_month=euro_df$months[nrow(euro_df)] )
 
 
-likelihood <- function(y1, y2, lambda, mu, months,phi=0,rho=0){
+likelihood <- function(y1, y2, lambda, mu, months,phi=0){
   sum( exp(-phi*months) * (log(dpois(y1, lambda) ) + log(dpois(y2, mu) ) ) ) 
 }
 
@@ -158,7 +158,7 @@ matches$away_score<-0.0
 find_score<- function(lambda, mu,group_stage){
   maxgoal <- 8 
   # all scores from 0-0 to 8-8 considered
-  probability_matrix <- dpois(0:maxgoal, lambda) %*% t(dpois(0:maxgoal, mu))
+  probability_matrix <- dpois(0:maxgoal, lambda) %*% (dpois(0:maxgoal, mu))
   
   # For predicting the most probable "non-draw" score for knockouts.
   # Not enough data to predict penalty scores.
